@@ -4,20 +4,10 @@ namespace Factory.Src
     {
         public Pizza OrderPizza(string type)
         {
-            Pizza pizza;
-            switch(type)
-            {
-                case "Pepperoni":
-                    pizza = new PepperoniPizza();
-                    break;
-                case "Greek":
-                    pizza = new GreekPizza();
-                    break;
-                default:
-                    pizza = new DefaultPizza();
-                    break;
-            }
-
+            SimplePizzaFactory pizzaFactory = new SimplePizzaFactory();
+            
+            Pizza pizza = pizzaFactory.MakePizza(type);
+            
             pizza.Prepare();
             pizza.Bake();
             pizza.Cut();
