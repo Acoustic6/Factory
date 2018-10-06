@@ -1,0 +1,3 @@
+Here is even better way.
+Composition lets us dynamically change pizzaFactory for PizzaStore.
+Different regions may have same pizza names but use different types of products.

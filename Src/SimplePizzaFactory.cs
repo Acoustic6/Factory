@@ -1,6 +1,6 @@
 namespace Factory.Src
 {
-    public class SimplePizzaFactory
+    public class SimplePizzaFactory : IPizzaFactory
     {
         public Pizza MakePizza(string type)
         {
