@@ -1,3 +1,21 @@
-Here is even better way.
-Composition lets us dynamically change pizzaFactory for PizzaStore.
-Different regions may have same pizza names but use different types of products.
+Now I can do like:
+
+IPizzaFactory newYorkPizzaFactory = new NewYorkPizzaFactory();
+PizzaStore pizzaStore = new PizzaStore(newYorkPizzaFactory);
+
+IPizzaFactory chicagoPizzaFactory = new ChicagoPizzaFactory();
+PizzaStore pizzaStore = new PizzaStore(chicagoPizzaFactory);
+
+And they use fabrics we provide properly.
+But they behave differently with bake cook and other methods.
+I want to have control over all stores making these operations in 
+a same way in main pizza store. 
+
+For the purpose I make abstract PizzaStore class with pizza methods defined 
+and let children stores override MakePizza method.
+
+So we did few changes and switched model where certain objects 
+that make instances of certain classes to the model where 
+we have a collection of classes, solving same problem.
+
+So this pattern is called "Fabric Method"

@@ -1,14 +1,12 @@
+using Factory.Src.Pizzas;
+
 namespace Factory.Src
 {
-    public class PizzaStore
+    public abstract class PizzaStore
     {
-        private IPizzaFactory pizzaFactory;
-        public PizzaStore(IPizzaFactory _pizzaFactory) 
-            => pizzaFactory = _pizzaFactory;
-        
         public Pizza OrderPizza(string type)
         {
-            Pizza pizza = pizzaFactory.MakePizza(type);
+            Pizza pizza = MakePizza(type);
             
             pizza.Prepare();
             pizza.Bake();
@@ -17,5 +15,8 @@ namespace Factory.Src
 
             return pizza;            
         }
+
+        public abstract Pizza MakePizza(string type);
+        
     }
 }
