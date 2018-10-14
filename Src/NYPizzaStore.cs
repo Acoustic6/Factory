@@ -4,22 +4,23 @@ namespace Factory.Src
 {
     public class NYPizzaStore : PizzaStore
     {
-        public override Pizza MakePizza(string type)
+        public NYPizzaStore()
         {
-            Pizza pizza = null;
-            IIngridientFactory factory = new NYIngridientFactory();
+            _factory = new NYIngridientFactory();
+        }
+        public override Pizza MakeCheesePizza(IIngridientFactory factory)
+        {
+            var pizza = base.MakeCheesePizza(_factory);
+            pizza.SetName("New York cheese pizza");
 
-            switch (type.ToLower())
-            {
-                case "cheese":
-                    pizza = new CheesePizza(factory);
-                    pizza.SetName("New Yorks cheese pizza");
-                    break;
-                case "pepperoni":
-                    pizza = new PepperoniPizza(factory);
-                    pizza.SetName("New York cheese pizza");
-                    break;
-            }
+            return pizza;
+        }
+
+        public override Pizza MakePepperoniPizza(IIngridientFactory factory)
+        {
+            var pizza = base.MakeCheesePizza(_factory);
+            pizza.SetName("New York pepperoni pizza");
+
             return pizza;
         }
     }
