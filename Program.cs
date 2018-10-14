@@ -1,5 +1,7 @@
 ﻿using System;
 using Factory.Src;
+using Factory.Src.Ingridients;
+using Factory.Src.Pizzas;
 
 namespace Factory
 {
@@ -7,12 +9,12 @@ namespace Factory
     {
         static void Main(string[] args)
         {
-            var NYStore = new NewYorkPizzaStore();
-            var pizza1 = NYStore.OrderPizza("popular");
-            var pizza2 = NYStore.OrderPizza("default");
+            var nYPizzaStore = new NYPizzaStore();
+            var nyCheesePizza = nYPizzaStore.OrderPizza("cheese");
 
-            var chicagoStore = new ChicagoPizzaStore();
-            chicagoStore.OrderPizza("pepperoni");
+            var chicagoPizzaStore = new ChicagoPizzaStore();
+            var chicagoPepperoniPizza = 
+                chicagoPizzaStore.OrderPizza("pepperoni");
         }
     }
 }

@@ -2,22 +2,22 @@ using Factory.Src.Pizzas;
 
 namespace Factory.Src
 {
-    public class ChicagoPizzaStore : PizzaStore
+    public class NYPizzaStore : PizzaStore
     {
         public override Pizza MakePizza(string type)
         {
             Pizza pizza = null;
-            IIngridientFactory factory = new ChicagoIngridientFactory();
+            IIngridientFactory factory = new NYIngridientFactory();
 
             switch (type.ToLower())
             {
                 case "cheese":
                     pizza = new CheesePizza(factory);
-                    pizza.SetName("Chicago cheese pizza");
+                    pizza.SetName("New Yorks cheese pizza");
                     break;
                 case "pepperoni":
                     pizza = new PepperoniPizza(factory);
-                    pizza.SetName("Chicago pepperoni pizza");
+                    pizza.SetName("New York cheese pizza");
                     break;
             }
             return pizza;

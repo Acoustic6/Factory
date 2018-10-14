@@ -15,7 +15,6 @@ namespace Factory.Src
 
             return pizza;            
         }
-
         public abstract Pizza MakePizza(string type);
         
     }
